@@ -1,21 +1,19 @@
 <template>
   <div id="app">
-    <vk-card>
-      <vk-card-title>wololo</vk-card-title>
-    </vk-card>
+    <h1>Puta que pariu batman</h1>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  components: {
+  mounted: function(){
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  padding: 10px;
 }
 </style>

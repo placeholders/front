@@ -1,13 +1,20 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.js'
 import App from './App.vue'
-import Vuikit from 'vuikit'
+import VueRouter from 'vue-router'
 
+import router from './router'
+
+import Vuikit from 'vuikit'
 import '@vuikit/theme'
+
+Vue.use(Vuikit)
+Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
-Vue.use(Vuikit)
-
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})
