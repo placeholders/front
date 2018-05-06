@@ -20,7 +20,7 @@
         {{ realDown }}
       </div>
 
-      <div class="desc" v-if="desc != ''">
+      <div class="desc" v-if="desc != null">
         <label>
           Description:
           <p>{{ desc }}</p>
@@ -46,7 +46,10 @@ export default {
     title:String,
     up:Number,
     down:Number,
-    desc:String,
+    desc:{
+      type: String,
+      default: null,
+    },
     questId:Number,
   },
   methods: {
