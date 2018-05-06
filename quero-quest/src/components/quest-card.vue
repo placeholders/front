@@ -91,6 +91,7 @@ export default {
   grid-template:
     "title up" 1fr
     "user  down" 1fr
+    "desc  desc" 1fr
     / 2fr 1fr
 }
 .body .title {
@@ -108,11 +109,11 @@ export default {
 .body .votes-down {
   grid-area: down;
 }
-.body .desc {
-  grid-area: desc;
-}
 .body .user {
   grid-area: user;
+}
+.body .desc {
+  grid-area: desc;
 }
 .body .desc p {
   color: #333;
