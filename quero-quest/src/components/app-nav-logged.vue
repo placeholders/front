@@ -21,7 +21,7 @@
         />
     </vk-navbar-nav>
     <vk-navbar-nav slot="right" class="uk-padding-small">
-      <vk-button type="primary">Logout</vk-button>
+      <vk-button type="primary">Login</vk-button>
     </vk-navbar-nav>
   </vk-navbar>
 </template>
