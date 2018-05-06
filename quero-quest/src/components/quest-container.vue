@@ -4,7 +4,7 @@
     <QuestCard
         v-for="q in quests"
         :key="q.quest_id"
-        :user="q.user_creator"
+        :user="q.creator"
         :title="q.title"
         :up="q.up_votes"
         :down="q.down_votes"
