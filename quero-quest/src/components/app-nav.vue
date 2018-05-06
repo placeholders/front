@@ -5,9 +5,6 @@
         <img src="@/assets/artproquest.png" />
       </vk-navbar-logo>
 
-      <vk-navbar-nav-item
-        title="Profile"
-        />
       <li><router-link
         to="/">
         Quests
@@ -16,9 +13,10 @@
         to="/post">
         Post a Quest
       </router-link></li>
-      <vk-navbar-nav-item
-        title="Leaderboard"
-        />
+      <li><router-link
+        to="/board">
+        Leaderboard
+      </router-link></li>
     </vk-navbar-nav>
     <vk-navbar-nav slot="right" class="uk-padding-small">
       <vk-button type="primary" @click="logout()">Logout</vk-button>
