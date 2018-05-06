@@ -11,6 +11,12 @@
             :down="quest.down_votes"
             :desc="quest.description"
             />
+
+        <label>
+            Description:
+            <p>{{ quest.description }}</p>
+        </label>
+
         <FormInput
             input-id="txtAnswer"
             input-placeholder="Here you write your answer"
