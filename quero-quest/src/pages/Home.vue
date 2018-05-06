@@ -5,7 +5,6 @@
     </header>
     <main>
         <QuestContainer />
-        <LeaderBoard />
     </main>
 </div>
 </template>
