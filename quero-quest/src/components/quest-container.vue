@@ -28,7 +28,8 @@ export default {
     },
     methods:{
         openQuest: function(id){
-            window.router.push(`/quest/${id}`)
+            console.log("card clicked: ", id)
+            this.$router.push(`/quest/${id}`)
         }
     },
     mounted: function (){
