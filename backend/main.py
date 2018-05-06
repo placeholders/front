@@ -4,18 +4,12 @@ import json
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+from models import *
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-db = SQLAlchemy(app)
 
-class TestTable(db.Model):
-    __tablename__ = 'test'
-
-    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
-    name = db.Column(db.String())
-
-    def __init__(self, name):
-        self.name = name
+db.init_app(app)
 
 @app.route('/')
 def login_page():
