@@ -28,7 +28,7 @@ export default {
     },
     methods:{
         openQuest: function(id){
-            window.route.push(`/quest/${id}`)
+            window.router.push(`/quest/${id}`)
         }
     },
     mounted: function (){

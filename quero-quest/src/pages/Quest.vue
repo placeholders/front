@@ -14,6 +14,8 @@
     label-text="Answer"
     v-model="full"
     />
+  <button>Submit</button>    
+
 </div>
 </template>
 
@@ -21,6 +23,7 @@
 <script>
 import axios from 'axios'
 import QuestCard from '@/components/quest-card.vue'
+import FormInput from '@/components/form-input.vue'
 
 export default {
   props:{
@@ -28,6 +31,7 @@ export default {
   },
   components:{
     QuestCard,
+    FormInput,
   },
   mounted:function(){
       axios({
