@@ -6,7 +6,7 @@ import Login from '@/pages/Login'
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+window.router = new VueRouter({
     routes: [
         {
             path: '/',
@@ -20,3 +20,5 @@ export default new VueRouter({
         },
     ]
 })
+
+export default window.router
