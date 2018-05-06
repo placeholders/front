@@ -59,7 +59,7 @@ export default {
         navigateTo: function(to){
             window.router.push(to)
         },
-        validade: function(){
+        validate: function(){
             if ([this.user,this.pass].indexOf("") !== -1){
                 this.messages.push("Fill all the fields")
                 return false
