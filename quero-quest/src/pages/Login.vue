@@ -84,7 +84,7 @@ export default {
                     return
                 }
 
-                window.app.user.login = this.user
+                window.sessionStorage.setItem("user", this.user)
                 this.navigateTo("/")
             })
         }
