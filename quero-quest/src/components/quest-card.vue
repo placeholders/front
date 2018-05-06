@@ -1,6 +1,6 @@
 <template>
   <vk-card>
-    <div class="body">
+    <div class="body" :class="{ 'body-nodesc' : (desc != null) }">
       <label>
         Title:
         <h3 class="title" @click="openIt($vnode.key)">{{ title }}</h3>
@@ -95,7 +95,13 @@ export default {
     "title up" 1fr
     "user  down" 1fr
     "desc  desc" 1fr
-    / 2fr 1fr
+    / 2fr 1fr;
+}
+.body-nodesc {
+  grid-template:
+    "title up" 1fr
+    "user  down" 1fr
+    / 2fr 1fr !important;
 }
 .body .title {
   grid-area: title;
