@@ -4,22 +4,20 @@
       <div class="title">
         <h3>placeholder problem title</h3>
       </div>
-      <div class="votes">
-      <img src="@/assets/upvote.png" />
-      20
-      </div>
+      <div class="vote">
+      <img src="@/assets/upvote.png" @click="upvote"/>
       <div class="votes" id="voted">
-      <img src="@/assets/questing.png"  />
-      30
+      <img src="@/assets/questing.png"/>
       </div>
-      <div class="votes" id="votet">
-      <img src="@/assets/downvote.png" />
-      ph
+      <div class="vote" id="votet">
+      <img src="@/assets/downvote.png" @click="downvote"/>
+      <span class="label label-primary">{{ votes }}</span>
       </div>
       <div class="desc small-text">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit eos neque non facilis tempora reprehenderit harum animi sint necessitatibus minima? Cum tenetur veniam harum porro maiores exercitationem accusantium, praesentium magnam commodi, cupiditate ducimus asperiores adipisci. Aliquid, repellat repudiandae voluptatem eos dolore cumque quas nostrum, perferendis doloremque, aliquam accusantium placeat eaque?</p>
       </div>	
     </div>
+  </div>
   </vk-card>
 </template>
 
@@ -28,6 +26,38 @@
 export default {
   name: "QuestCard",
 }
+
+Vue.component('post', {
+  template: "#post-template",
+  props: ['post'],
+  data: function () {
+    return {
+      upvoted: false,
+      downvoted: false
+    };
+  },
+  methods: {
+    upvote: function () {
+      this.upvoted = !this.upvoted;
+      this.downvoted = false;
+    },
+    downvote: function () {
+      this.downvoted = !this.downvoted;
+      this.upvoted = false;
+    }
+  },
+  computed: {
+    votesu: function () {
+      if (this.upvoted) {
+        return this.post.votes + 1;
+      } else if (this.downvoted) {
+        return this.post.votes - 1;
+      } else {
+        return this.post.votes;
+      }
+    }
+  }
+});
 </script>
 
 
@@ -65,9 +95,9 @@ export default {
   grid-area: desc;
 }
 #voted{
-  padding-left: 32.5%;
+  padding-left: 10%;
 }
 #votet{
-  padding-left: 65%;
+  padding-left: 10%;
 }
 </style>
