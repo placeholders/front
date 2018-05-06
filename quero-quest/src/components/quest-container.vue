@@ -1,16 +1,19 @@
 <template>
 <div id="quests" class="uk-width-2-3@m">
-    <vk-card>
-        <vk-card-title>wololo</vk-card-title>
-    </vk-card>
+        <QuestContent/>    
 
-    <vk-card>
-        <vk-card-title>wololo</vk-card-title>
-        <vk-label slot="badge" type="success">new</vk-label>
-    </vk-card>
+        <QuestContent/>
 </div>
 </template>
+<script type="text/javascript">
+   import QuestContent from '@/components/quest-card.vue' 
 
+    export default {
+    components:{
+        QuestContent,
+    }
+}
+</script>
 <style scoped>
 #quests {
     display: flex;
