@@ -1,30 +1,34 @@
 <template>
-  <vk-card>
   <table class="uk-table uk-table-striped">
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Login</th>
-            <th>Pontuação</th>
+            <th>Name</th>
+            <th>Score</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>22</td>
-            <td>25</td>
-            <td>42</td>
-        </tr>
-        <tr>
-            <td>larissinhapistolassa</td>
-            <td>Joaomarvel2222</td>
-            <td>xxxdestructorxxx</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Twable Data</td>
-            <td>Tadeble Data</td>
+        <tr v-for="line in lines" :key="line.name">
+            <td>{{ line.name }}</td>
+            <td>{{ line.score }}</td>
         </tr>
     </tbody>
 </table>
-</vk-card>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+  data(){return{
+      lines: [],
+  }},
+  mounted: function(){
+      axios({
+          method: 'get',
+          url: 'http://127.0.0.1:5000/users/scores',
+      }).then(response =>{
+          this.lines = response.data.users
+      })
+  },
+}
+</script>
