@@ -31,7 +31,7 @@
                         type="button">
                         Login
                     </button>
-
+                    
                     <button
                         id="signup"
                         @click="navigateTo('signup')"
@@ -44,7 +44,6 @@
       </vk-card>
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 import FormInput from '@/components/form-input.vue'

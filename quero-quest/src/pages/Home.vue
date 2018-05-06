@@ -5,6 +5,7 @@
     </header>
     <main>
         <QuestContainer />
+        <LeaderBoard />
     </main>
 </div>
 </template>
@@ -12,12 +13,14 @@
 <script>
 import QuestContainer from '@/components/quest-container.vue'
 import NavApp from '@/components/app-nav.vue'
+import LeaderBoard from '@/components/app-leaderboard.vue'
 
 
 export default {
     components:{
         QuestContainer,
 		NavApp,
+        LeaderBoard,
     }
 }
 </script>
