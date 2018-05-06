@@ -11,9 +11,10 @@
             :down="quest.down_votes"
             :desc="quest.description"
             >
-            <div class="solution" v-if="true">
-                oi! :D
-            </div>
+            <label class="solution" v-if="true">
+                Solução:
+                <p>{{ quest.sol_desc }}</p>
+            </label>
         </QuestCard>
 
         <FormInput
