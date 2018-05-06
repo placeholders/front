@@ -131,7 +131,7 @@ def upvote_issue():
             issue.down_votes -= 1
             issue_vote.isupvote = True
         else:
-            return json.dumps({'status': 0})
+            return json.dumps({'status': 0, 'up_votes': issue.up_votes, 'down_votes': issue.down_votes})
     else:
         db.session.add(VoteIssueTable(user.id, issue_id, True))
 
@@ -139,7 +139,7 @@ def upvote_issue():
 
     db.session.commit()
 
-    return json.dumps({'status': 0, 'up_votes': issue.up_votes})
+    return json.dumps({'status': 0, 'up_votes': issue.up_votes, 'down_votes': issue.down_votes})
 
 @app.route('/issue/update/downvote', methods=['GET', 'POST'])
 def downvote_issue():
@@ -158,7 +158,7 @@ def downvote_issue():
             issue.up_votes -= 1
             issue_vote.isupvote = False
         else:
-            return json.dumps({'status': 0})
+            return json.dumps({'status': 0, 'up_votes': issue.up_votes, 'down_votes': issue.down_votes})
     else:
         db.session.add(VoteIssueTable(user.id, issue_id, False))
 
@@ -166,7 +166,7 @@ def downvote_issue():
 
     db.session.commit()
 
-    return json.dumps({'status': 0, 'down_votes': issue.down_votes})
+    return json.dumps({'status': 0, 'down_votes': issue.down_votes, 'up_votes': issue.up_votes})
 
 @app.route('/solution/update/upvote', methods=['GET', 'POST'])
 def upvote_solution():
@@ -186,7 +186,7 @@ def upvote_solution():
             solution.down_votes -= 1
             solution_vote.isupvote = True
         else:
-            return json.dumps({'status': 0})
+            return json.dumps({'status': 0, 'up_votes': solution.up_votes, 'down_votes': solution.down_votes})
     else:
         db.session.add(VoteSolutionTable(user.id, solution_id, True))
 
@@ -194,7 +194,7 @@ def upvote_solution():
 
     db.session.commit()
 
-    return json.dumps({'status': 0, 'up_votes': solution.up_votes})
+    return json.dumps({'status': 0, 'up_votes': solution.up_votes, 'down_votes': solution.down_votes})
 
 @app.route('/solution/update/downvote', methods=['GET', 'POST'])
 def downvote_solution():
@@ -213,7 +213,7 @@ def downvote_solution():
             solution.up_votes -= 1
             solution_vote.isupvote = False
         else:
-            return json.dumps({'status': 0})
+            return json.dumps({'status': 0, 'down_votes': solution.down_votes, 'up_votes': solution.up_votes})
     else:
         db.session.add(VoteSolutionTable(user.id, solution_id, False))
 
@@ -221,7 +221,7 @@ def downvote_solution():
 
     db.session.commit()
 
-    return json.dumps({'status': 0, 'down_votes': solution.down_votes})
+    return json.dumps({'status': 0, 'down_votes': solution.down_votes, 'up_votes': solution.up_votes})
 
 @app.route('/quests', methods=['GET'])
 def get_quests():
@@ -293,3 +293,12 @@ def get_completed_quests():
 
     return json.dumps(ans)
 
+@app.route('/quest/get', methods=['GET', 'POST'])
+def get_quest_by_id():
+    data = request.json
+    quest_id = data['id']
+
+    quest = IssueTable.query.filter_by(id=quest_id).first()
+
+    return json.dumps({'up_votes': quest.up_votes, 'down_votes': quest.down_votes,
+                       'title': quest.title, 'description': quest.description})
