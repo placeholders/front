@@ -1,7 +1,11 @@
 <template>
 <div id="main">
-	<NavTest/>
-    <QuestContainer />
+    <header>
+        <NavTest />
+    </header>
+    <main>
+        <QuestContainer />
+    </main>
 </div>
 </template>
 
@@ -16,3 +20,20 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+#main {
+    display: grid;
+    grid-template:
+        "header"
+        "main";
+}
+#main header{
+    grid-area: header;
+
+    margin-bottom: 2.5rem;
+}
+#main main{
+    grid-area: main;
+}
+</style>
