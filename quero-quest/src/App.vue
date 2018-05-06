@@ -11,11 +11,11 @@ export default {
   }},
   watch:{
     user: function(){
-      window.sessionStorage.setItem("user", this.user)
+      window.sessionStorage.setItem("user", JSON.stringify(this.user))
     }
   },
   mounted: function(){
-    this.user = window.sessionStorage.getItem("user")
+    this.user = JSON.parse(window.sessionStorage.getItem("user"))
 
     if (this.user == null){
       window.router.push("/login")

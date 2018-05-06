@@ -79,8 +79,8 @@ export default {
                     password: this.pass,
                 }
             }).then(response => {
-                if(response.data !== "success"){ 
-                    this.messages.push( response.data )
+                if(response.data.status !== 0){ 
+                    this.messages.push( response.data.message )
                     return
                 }
 
