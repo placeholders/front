@@ -5,7 +5,13 @@
         <h3>placeholder problem title</h3>
       </div>
       <div class="votes small-text">
-      x^ (y) zv
+      <img src="@/assets/upvote.png" />
+      </div>
+      <div class="votes small-text">
+      <img src="@/assets/questing.png" />
+      </div>
+      <div class="votes small-text">
+      <img src="@/assets/downvote.png" />
       </div>
       <div class="desc small-text">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit eos neque non facilis tempora reprehenderit harum animi sint necessitatibus minima? Cum tenetur veniam harum porro maiores exercitationem accusantium, praesentium magnam commodi, cupiditate ducimus asperiores adipisci. Aliquid, repellat repudiandae voluptatem eos dolore cumque quas nostrum, perferendis doloremque, aliquam accusantium placeat eaque?</p>
@@ -46,5 +52,15 @@ export default {
 }
 .body .desc {
   grid-area: desc;
+}
+#votes2{
+  padding-left: 10%;
+  padding-bottom: 0.5%;
+  font-size: 95%;
+}
+#votes3{
+  padding-left: 15%;
+  padding-bottom: 0.5%;
+  font-size: 95%;
 }
 </style>
