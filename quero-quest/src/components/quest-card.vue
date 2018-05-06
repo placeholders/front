@@ -1,7 +1,7 @@
 <template>
-  <vk-card @click="openIt($vnode.key)">
+  <vk-card>
     <div class="body">
-      <h3 class="title">{{ title }}</h3>
+      <h3 class="title" @click="openIt($vnode.key)">{{ title }}</h3>
       <h4 class="user">{{ user }}</h4>
       <p class="desc small-text">{{ desc }}</p>
       <div class="votes-up uk-button" @click="voteup()">
