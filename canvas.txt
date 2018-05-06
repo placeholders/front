@@ -1,0 +1,36 @@
+NOME DO PRODUTO
+Pro Quest
+
+
+PROBLEMA A SER RESOLVIDO
+Empecilhos relacionados ao workplace
+
+
+SOLUÇÃO PROPOSTA
+Gamificação do processo de comunicação do problema e a premiação dos que resolverem
+
+
+PRINCIPAIS FUNCIONALIDADES
+- publicar uma 'quest' 
+- auto-moderação das quests atraves de um sistema de upvote/downvote
+- responder/resolver as 'quest's
+- placar com a pontuação baseada nas respostas dadas, e nos problemas relevantes apontados (baseado nos votos)
+- 'loja' onde o usuário libera 'perks' baseado nos pontos adquiridos
+
+
+TECNOLOGIAS UTILIZADAS
+- front
+  - HTML/CSS/JS
+  - npm
+  - Vue.js
+  - vue-router
+  - axios
+  - Vuikit
+- back
+  - MySQL
+  - python
+  - flask
+
+
+PÚBLICO-ALVO
+Funcionarios
