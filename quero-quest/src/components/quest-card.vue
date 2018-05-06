@@ -1,9 +1,16 @@
 <template>
   <vk-card>
     <div class="body">
-      <h3 class="title" @click="openIt($vnode.key)">{{ title }}</h3>
-      <h4 class="user">{{ user }}</h4>
-      <p class="desc small-text">{{ desc }}</p>
+      <label>
+        Title:
+        <h3 class="title" @click="openIt($vnode.key)">{{ title }}</h3>
+      </label>
+
+      <label>
+        User:
+        <h4 class="user">{{ user }}</h4>
+      </label>
+
       <div class="votes-up uk-button" @click="voteup()">
         <img src="@/assets/upvote.png" />
         {{ realUp }}
@@ -12,6 +19,7 @@
         <img src="@/assets/downvote.png" />
         {{ realDown }}
       </div>
+
     </div>
   </vk-card>
 </template>
@@ -74,10 +82,9 @@ export default {
 .body {
   display: grid;
   grid-template:
-    "title title desc" 1fr
-    "user  user  desc" 1fr
-    "up    down  desc" 1fr
-    / 1fr 1fr 2fr
+    "title up" 1fr
+    "user  down" 1fr
+    / 2fr 1fr
 }
 .body .title {
   grid-area: title;
