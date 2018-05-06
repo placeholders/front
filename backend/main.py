@@ -1,6 +1,5 @@
 import os
 import json
-import http.client
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -19,11 +18,17 @@ class TestTable(db.Model):
         self.name = name
 
 @app.route('/')
-def main():
-    return 'test'
+def login_page():
+    return render_template("login");
 
-@app.route('/name/<name>')
-def test(name):
-    db.session.add(TestTable(name))
-    db.session.commit()
-    return name
+@app.route('/register/user/<name>/<user>/<password>/<confirm_password>')
+def register_user(name, user, password, confirm_password):
+    #db.session.add(TestTable(name))
+    #db.session.commit()
+    return name+" "+user+" "+password+" "+confirm_password
+
+@app.route('/login/<user>/<password>')
+def login(name, user, password):
+    #db.session.add(TestTable(name))
+    #db.session.commit()
+    return user+" "+password;
