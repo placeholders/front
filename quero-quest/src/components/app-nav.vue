@@ -1,8 +1,8 @@
 <template>
   <vk-navbar>
     <vk-navbar-nav slot="left">
-      <vk-navbar-logo>
-        <img src="https://placehold.it/60" />
+      <vk-navbar-logo id="logo">
+        <img src="@/assets/artproquest.png" />
       </vk-navbar-logo>
 
       <vk-navbar-nav-item
@@ -33,3 +33,4 @@ export default {
   }
 }
 </script>
+
