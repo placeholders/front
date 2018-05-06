@@ -21,7 +21,7 @@
         />
     </vk-navbar-nav>
     <vk-navbar-nav slot="right" class="uk-padding-small">
-      <vk-button type="primary">Login</vk-button>
+      <vk-button type="primary" @click="logout()">Logout</vk-button>
     </vk-navbar-nav>
   </vk-navbar>
 </template>
@@ -29,6 +29,10 @@
 <script>
 export default {
   methods:{
+    logout: function(){
+      window.sessionStorage.clear()
+      this.navigateTo("/login")
+    },
     navigateTo: function(to){
       window.router.push(to)
     }
