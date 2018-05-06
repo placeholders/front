@@ -37,7 +37,7 @@ import questCardVue from '../components/quest-card.vue';
 export default {
     data(){return{
         solution: "",
-        quest: Object,
+        quest: {},
     }},
     components:{
         QuestCard,
