@@ -1,5 +1,5 @@
 <template>
-  <vk-card>
+  <vk-card @click="openIt($vnode.key)">
     <div class="body">
       <h3 class="title">{{ title }}</h3>
       <h4 class="user">{{ user }}</h4>
@@ -35,6 +35,10 @@ export default {
     questId:Number,
   },
   methods: {
+    openIt:function(id){
+      console.log("card clicked: ", id)
+      this.$router.push("/quest/"+id)
+    },
     voteup: function(){
       axios({
         method: 'post',
