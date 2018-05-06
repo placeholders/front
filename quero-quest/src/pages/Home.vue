@@ -1,17 +1,18 @@
 <template>
 <div id="main">
-    <vk-card>
-        <vk-card-title>wololo</vk-card-title>
-    </vk-card>
-
-    <vk-card>
-        <vk-card-title>wololo</vk-card-title>
-        <vk-label slot="badge" type="success">new</vk-label>
-    </vk-card>
+	<NavTest/>
+    <QuestContainer />
 </div>
 </template>
 
 <script>
+import QuestContainer from '@/components/quest-container.vue'
+import NavTest from '@/components/nav-test.vue'
+
 export default {
+    components:{
+        QuestContainer,
+		NavTest,
+    }
 }
 </script>
