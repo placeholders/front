@@ -2,7 +2,7 @@
 <template>
 <div id="main">
     <header>
-        <NavApp />
+        <AppNav />
     </header>
     <main>
         <LeaderBoard />
@@ -10,6 +10,18 @@
 </div>
 
 </template>
+
+<script>
+import AppNav from '@/components/app-nav.vue'
+import LeaderBoard from '@/components/app-leaderboard.vue'
+
+export default {
+    components:{
+        AppNav,
+        LeaderBoard,
+    }
+}
+</script>
 
 <style scoped>
 #quests {
@@ -23,13 +35,3 @@
     margin-bottom: 2.5rem;
 }
 </style>
-
-<script>
-import LeaderBoard from '@/components/app-leaderboard.vue'
-
-export default {
-    components:{
-        LeaderBoard,
-    }
-}
-</script>
