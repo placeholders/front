@@ -6,11 +6,11 @@
       <p class="desc small-text">{{ desc }}</p>
       <div class="votes-up" @click="voteup()">
         <img src="@/assets/upvote.png" />
-        {{ up }}
+        {{ realUp }}
       </div>
       <div class="votes-down" @click="votedown()">
         <img src="@/assets/downvote.png" />
-        {{ down }}
+        {{ realDown }}
       </div>
     </div>
   </vk-card>
@@ -22,6 +22,10 @@ import axios from 'axios'
 
 export default {
   name: "QuestCard",
+  data(){return{
+    realUp: this.up,
+    realDown: this.down,
+  }},
   props:{
     user:String,
     title:String,
@@ -32,6 +36,7 @@ export default {
   },
   methods: {
     voteup: function(){
+      this.realUp++
       axios({
         method: 'post',
         url: 'http://127.0.0.1:5000/issue/update/upvote',
@@ -42,6 +47,7 @@ export default {
       })
     },
     votedown: function(){
+      this.realDown++
       axios({
         method: 'post',
         url: 'http://127.0.0.1:5000/issue/update/downvote',
