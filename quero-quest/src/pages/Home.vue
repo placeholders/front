@@ -17,6 +17,13 @@ import LeaderBoard from '@/components/app-leaderboard.vue'
 
 
 export default {
+    mounted: function(){
+        let user = window.sessionStorage.getItem("user")
+
+        if (user == null){
+        window.router.push("/login")
+        }
+    },
     components:{
         QuestContainer,
 		NavApp,

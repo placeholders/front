@@ -3,7 +3,7 @@
       <header>
           <AppNav />
       </header>
-      <vk-card class="uk-width-1-5@m uk-position-absolute uk-transform-center" style="left:50%;top:50%">
+      <vk-card class="uk-width-1-3@m uk-position-absolute uk-transform-center" style="left:50%;top:50%">
           <vk-card-title slot="header">
                 Post a Quest
           </vk-card-title>
@@ -12,22 +12,19 @@
                     input-id="txtquest"
                     input-placeholder="Quest"
                     label-text="Quest Title"
-                    />
-
-                <FormInput
-                    input-id="txtquestresume"
-                    input-placeholder="Here you write your quest resume"
-                    label-text="Quest small resume"
+                    v-model="title"
                     />
 
                 <FormInput
                     input-id="txtquestr"
                     input-placeholder="Here you write your quest"
                     label-text="Quest"
+                    v-model="full"
                     />
 
                 <div class="uk-margin" uk-margin>
                     <button
+                        @click="postIt()"
                         class="uk-button uk-button-primary"
                         type="button">
                         Submit it
@@ -39,10 +36,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 import FormInput from '@/components/form-input.vue'
 import AppNav from '@/components/app-nav.vue'
 
 export default {
+    data(){return{
+        messages: [],
+
+        title: "",
+        full: "",
+    }},
+    methods: {
+        postIt: function(){
+            axios({
+                method: 'post',
+                url: 'http://127.0.0.1:5000/issue/add',
+                data: {
+                    login: window.app.user.login,
+                    title: this.title,
+                    description: this.full,
+                },
+            }).then(response => {
+                this.messages.push(response.data.message)
+            })
+        },
+    },
     components: {
         AppNav,
         FormInput

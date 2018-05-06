@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <template>
 <div id="main">
@@ -30,6 +31,26 @@ import LeaderBoard from '@/components/app-leaderboard.vue'
 export default {
     components:{
         LeaderBoard,
+=======
+<template>
+<div>
+    <template v-for="item in list">
+    </template>
+</div>
+</template>
+
+<script>
+export default {
+    data(){return{
+        list: [],
+    }},
+    mounted: function(){
+        axios({
+
+        }).then(response => {
+
+        })
+>>>>>>> 9c4940da0ffcdc218cf76aeaa63a76f975fbb742
     }
 }
 </script>
