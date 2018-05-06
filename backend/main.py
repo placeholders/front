@@ -139,7 +139,7 @@ def upvote_issue():
 
     db.session.commit()
 
-    return json.dumps({'status': 0})
+    return json.dumps({'status': 0, 'up_votes': issue.up_votes})
 
 @app.route('/issue/update/downvote', methods=['GET', 'POST'])
 def downvote_issue():
@@ -166,7 +166,7 @@ def downvote_issue():
 
     db.session.commit()
 
-    return json.dumps({'status': 0})
+    return json.dumps({'status': 0, 'down_votes': issue.down_votes})
 
 @app.route('/solution/update/upvote', methods=['GET', 'POST'])
 def upvote_solution():
@@ -194,7 +194,7 @@ def upvote_solution():
 
     db.session.commit()
 
-    return json.dumps({'status': 0})
+    return json.dumps({'status': 0, 'up_votes': solution.up_votes})
 
 @app.route('/solution/update/downvote', methods=['GET', 'POST'])
 def downvote_solution():
@@ -221,7 +221,7 @@ def downvote_solution():
 
     db.session.commit()
 
-    return json.dumps({'status': 0})
+    return json.dumps({'status': 0, 'down_votes': solution.down_votes})
 
 @app.route('/quests', methods=['GET'])
 def get_quests():
