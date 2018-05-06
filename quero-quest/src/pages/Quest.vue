@@ -37,10 +37,8 @@ import questCardVue from '../components/quest-card.vue';
 export default {
     data(){return{
         solution: "",
-    }},
-    props:{
         quest: Object,
-    },
+    }},
     components:{
         QuestCard,
         FormInput,
