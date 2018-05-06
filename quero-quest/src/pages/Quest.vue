@@ -12,12 +12,12 @@
             :desc="quest.description"
             />
 
-        <vk-card>
+        <div class="desc">
             <label>
                 Description:
                 <p>{{ quest.description }}</p>
             </label>
-        </vk-card>
+        </div>
 
         <FormInput
             input-id="txtAnswer"
@@ -69,5 +69,8 @@ export default {
     flex-flow: column nowrap;
 
     margin: 2.5rem auto 0;
+}
+.desc {
+    font-size: 2rem;
 }
 </style>
