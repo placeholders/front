@@ -53,7 +53,7 @@ export default {
                 method: 'post',
                 url: 'http://127.0.0.1:5000/issue/add',
                 data: {
-                    login: window.app.user.login,
+                    login: window.sessionStorage.getItem("user"),
                     title: this.title,
                     description: this.full,
                 },
