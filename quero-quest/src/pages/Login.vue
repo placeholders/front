@@ -73,7 +73,7 @@ export default {
 
             axios({
                 method: 'post',
-                url: 'https://127.0.0.1/login',
+                url: 'http://127.0.0.1:5000/login',
                 data: {
                     login: this.user,
                     password: this.pass,
