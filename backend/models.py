@@ -21,13 +21,18 @@ class IssueTable(db.Model):
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     title = db.Column(db.String())
     description = db.Column(db.String())
-    user_creator_id = db.Column(db.Integer())
-    user_solver_id = db.Column(db.Integer())
+    user_creator_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    user_solver_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
     created_date = db.Column(db.Date())
     up_votes = db.Column(db.Integer())
     down_votes = db.Column(db.Integer())
 
-    def __init__(self, description, user_creator_id, user_solver_id, created_date, up_votes, down_votes):
+    # relationships
+    creator = db.relationship('UserTable', foreign_keys=user_creator_id)
+    solver = db.relationship('UserTable', foreign_keys=user_solver_id)
+
+    def __init__(self, title, description, user_creator_id, user_solver_id, created_date, up_votes, down_votes):
+        self.title = title
         self.description = description
         self.user_creator_id = user_creator_id
         self.user_solver_id = user_solver_id
@@ -41,11 +46,15 @@ class SolutionTable(db.Model):
 
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     description = db.Column(db.String())
-    user_id = db.Column(db.Integer())
-    issue_id = db.Column(db.Integer())
+    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    issue_id = db.Column(db.Integer(), db.ForeignKey('issue.id'))
     solved_date = db.Column(db.Date())
     up_votes = db.Column(db.Integer())
     down_votes = db.Column(db.Integer())
+
+    # relationships
+    user = db.relationship('UserTable')
+    issue = db.relationship('IssueTable')
 
     def __init__(self, description, user_id, issue_id, solved_date, up_votes, down_votes):
         self.description = description
@@ -60,9 +69,13 @@ class VoteIssueTable(db.Model):
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer())
-    issue_id = db.Column(db.Integer())
+    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    issue_id = db.Column(db.Integer(), db.ForeignKey('issue.id'))
     isupvote = db.Column(db.Boolean())
+
+    # relationships
+    user = db.relationship('UserTable')
+    issue = db.relationship('IssueTable')
 
     def __init__(self, user_id, issue_id, isupvote):
         self.user_id = user_id
@@ -70,13 +83,17 @@ class VoteIssueTable(db.Model):
         self.isupvote = isupvote
 
 class VoteSolutionTable(db.Model):
-    __tablename__ = 'vote_issue'
+    __tablename__ = 'vote_solution'
     __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer())
-    solution_id = db.Column(db.Integer())
+    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    solution_id = db.Column(db.Integer(), db.ForeignKey('solution.id'))
     isupvote = db.Column(db.Boolean())
+
+    # relationship
+    user = db.relationship('UserTable')
+    solution = db.relationship('SolutionTable')
 
     def __init__(self, user_id, solution_id, isupvote):
         self.user_id = user_id
