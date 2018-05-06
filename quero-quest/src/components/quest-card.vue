@@ -25,6 +25,8 @@
           Description:
           <p>{{ desc }}</p>
         </label>
+
+        <slot></slot>
       </div>
 
     </div>

@@ -10,7 +10,11 @@
             :up="quest.up_votes"
             :down="quest.down_votes"
             :desc="quest.description"
-            />
+            >
+            <div class="solution" v-if="true">
+                oi! :D
+            </div>
+        </QuestCard>
 
         <FormInput
             input-id="txtAnswer"
