@@ -13,7 +13,7 @@
             >
             <label class="solution" v-if="true">
                 Solução:
-                <p>{{ quest.sol_desc }}</p>
+                <p>{{ quest.solution }}</p>
             </label>
         </QuestCard>
 
