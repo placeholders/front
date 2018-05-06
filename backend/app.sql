@@ -30,12 +30,14 @@ CREATE TABLE solution (
 );
 
 CREATE TABLE score (
+       id INT(6) AUTO_INCREMENT,
        user_id INT(6),
        issue_id INT(6),
        solution_id INT(6),
        up_votes INT(32),
        down_votes INT(32),
 
+       PRIMARY KEY (id),
        FOREIGN KEY (user_id) REFERENCES user(id),
        FOREIGN KEY (issue_id) REFERENCES issue(id),
        FOREIGN KEY (solution_id) REFERENCES solution(id)

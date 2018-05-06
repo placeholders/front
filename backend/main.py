@@ -22,7 +22,7 @@ def register_user(name, user, password, confirm_password):
     return name+" "+user+" "+password+" "+confirm_password
 
 @app.route('/login/<user>/<password>')
-def login(name, user, password):
+def login(user, password):
     #db.session.add(TestTable(name))
     #db.session.commit()
     return user+" "+password;

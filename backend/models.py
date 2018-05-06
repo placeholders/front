@@ -32,6 +32,7 @@ class IssueTable(db.Model):
 class ScoreTable(db.Model):
     __tablename__ = 'score'
 
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     issue_id = db.Column(db.Integer())
     solution_id = db.Column(db.Integer())
     user_id = db.Column(db.Integer())
@@ -48,7 +49,7 @@ class ScoreTable(db.Model):
 class SolutionTable(db.Model):
     __tablename__ = 'solution'
 
-    id = db.Column(db.Column(db.Integer(), primary_key=True, autoincrement=True))
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     description = db.Column(db.String())
     user_id = db.Column(db.Integer())
     issue_id = db.Column(db.Integer())
