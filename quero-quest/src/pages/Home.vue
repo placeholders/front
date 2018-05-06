@@ -1,5 +1,6 @@
 <template>
 <div id="main">
+	<NavTest/>
     <vk-card>
         <vk-card-title>wololo</vk-card-title>
     </vk-card>
@@ -12,6 +13,11 @@
 </template>
 
 <script>
+import NavTest from '@/components/nav-test.vue'
+
 export default {
+	components:{
+		NavTest
+	}
 }
 </script>
