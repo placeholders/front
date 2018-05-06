@@ -1,23 +1,28 @@
 <template>
 <div id="main">
-	<NavTest/>
+	<NavApp/>
+	<div>
     <vk-card>
-        <vk-card-title>wololo</vk-card-title>
+    <div class="uk-position-left uk-padding-small uk-padding-remove-top">
+     <h3><b>placeholder problem title</b></h3>
+  	</div>
+  	<div class="uk-position-left uk-padding-large">
+     x^ (y) zv
+  	</div>
+  	<div class="uk-position-center">
+      <p>Lorem problemus dolor de costus, conseteur essus bostus.</p>
+  </div>	
     </vk-card>
-
-    <vk-card>
-        <vk-card-title>wololo</vk-card-title>
-        <vk-label slot="badge" type="success">new</vk-label>
-    </vk-card>
+  </div>
 </div>
 </template>
 
 <script>
-import NavTest from '@/components/nav-test.vue'
+import NavApp from '@/components/app-nav.vue'
 
 export default {
 	components:{
-		NavTest
+		NavApp
 	}
 }
 </script>

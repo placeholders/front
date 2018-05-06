@@ -4,6 +4,7 @@
   <vk-navbar-nav>
     <vk-navbar-nav-item title="Profile" ></vk-navbar-nav-item>
     <vk-navbar-nav-item title="Problem" ></vk-navbar-nav-item>
+    <vk-navbar-nav-item title="Problem report" ></vk-navbar-nav-item>
     <vk-navbar-nav-item title="Leader Board" ></vk-navbar-nav-item>
 </vk-navbar-nav>
 <vk-navbar-nav slot="right">
@@ -18,12 +19,4 @@
 </script>
 
 <style type="text/css" scoped>
-.formatright-navbutton{
-text-align: right; 
-background-color: 
-}
-.formatright-navbutton{
-box: right; 
-background-color: blue; 
-}
 </style>
