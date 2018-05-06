@@ -1,4 +1,5 @@
 <template>
+<div>
   <vk-card>
     <div class="body">
       <div class="title">
@@ -27,6 +28,7 @@
                     label-text="Answer"
                     v-model="full"
                     />
+</div>
 </template>
 
 
