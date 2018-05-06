@@ -44,6 +44,7 @@ export default {
           issue_id: this.$vnode.key,
         }
       }).then(response => {
+        this.realDown = response.data.down_votes
         this.realUp = response.data.up_votes
       })
     },
@@ -57,6 +58,7 @@ export default {
         }
       }).then(response => {
         this.realDown = response.data.down_votes
+        this.realUp = response.data.up_votes
       })
     },
   },
