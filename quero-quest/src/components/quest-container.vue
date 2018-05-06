@@ -9,6 +9,7 @@
         :up="q.up_votes"
         :down="q.down_votes"
         :desc="q.description"
+        @click="openQuest(q.quest_id)"
         />
 </div>
 </template>
@@ -24,6 +25,11 @@ export default {
     name: "QuestContainer",
     components: {
         QuestCard,
+    },
+    methods:{
+        openQuest: function(id){
+            window.route.push(`/quest/${id}`)
+        }
     },
     mounted: function (){
         axios({
