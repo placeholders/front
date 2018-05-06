@@ -31,7 +31,7 @@
 <script>
 export default {
   data(){return{
-    user: window.sessionStorage.getItem("user"),
+    user: "",
   }},
   methods:{
     logout: function(){
@@ -41,6 +41,9 @@ export default {
     navigateTo: function(to){
       window.router.push(to)
     }
+  },
+  mounted:function(){
+    this.user = window.sessionStorage.getItem("user")
   }
 }
 </script>
