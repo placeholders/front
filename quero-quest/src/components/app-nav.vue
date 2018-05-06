@@ -22,7 +22,7 @@
       </router-link></li>
     </vk-navbar-nav>
     <vk-navbar-nav slot="right" class="uk-padding-small">
-      <vk-navbar-nav-item>{{ user }}</vk-navbar-nav-item>
+      <vk-navbar-nav-item>Hey, {{ user }}!</vk-navbar-nav-item>
       <vk-button type="primary" @click="logout()">Logout</vk-button>
     </vk-navbar-nav>
   </vk-navbar>
