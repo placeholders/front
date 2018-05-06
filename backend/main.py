@@ -30,13 +30,13 @@ def register_user():
     user = UserTable.query.filter_by(login=login).first()
 
     if user:
-        return 'login already exists'
+        return json.dumps({'status': 1, 'message': 'login already exists'})
     elif password != confirm_password:
-        return 'passwords does not match'
+        return json.dumps({'status': 1, 'message': 'passwords dont match'})
     else:
         db.session.add(UserTable(name, login, password))
         db.session.commit()
-        return 'success'
+        return json.dumps({'status': 0, 'message': 'user {} successfully registered'.format(login)})
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -49,12 +49,12 @@ def login():
     user = UserTable.query.filter_by(login=login).first()
 
     if not user:
-        return json.dumps({'status': 1, 'message': 'invalid login', 'date': datetime.datetime.now().isoformat()})
+        return json.dumps({'status': 1, 'message': 'invalid login'})
 
     if user.password == password:
-        return 'success'
+        return json.dumps({'status': 0, 'message': 'logged in successfully'})
     else:
-        return 'Wrong password'
+        return json.dumps({'status': 1, 'message': 'wrong password'})
 
 @app.route('/issue/add', methods=['GET', 'POST'])
 def add_issue():
@@ -69,12 +69,12 @@ def add_issue():
     issue = IssueTable.query.filter_by(title=title).first()
 
     if issue:
-        return 'an issue with this title already exists'
+        return json.dumps({'status': 1, 'message': 'an issue with this title already exists'})
     else:
         creator_id = UserTable.query.filter_by(login=user).first().id
         db.session.add(IssueTable(title, description, creator_id, None, datetime.datetime.now(), 0, 0))
         db.session.commit()
-        return json.dumps({'status': 0, 'message': 'success'})
+        return json.dumps({'status': 0, 'message': 'quest successfully added'})
 
 @app.route('/issue/update', methods=['GET', 'POST'])
 def update_issue():
@@ -92,7 +92,7 @@ def update_issue():
 
     db.session.commit()
 
-    return 'success'
+    return json.dumps({'status': 0, 'message': 'quest "{}" successfully updated'.format(title)})
 
 @app.route('/solution/add', methods=['GET', 'POST'])
 def add_solution():
@@ -111,7 +111,7 @@ def add_solution():
     db.session.add(SolutionTable(description, user.id, issue_id, datetime.datetime.now(), 0, 0))
     db.session.commit()
 
-    return 'success'
+    return json.dumps({'status': 0, 'message': 'quest "{}" successfully turned in'.format(issue.title)})
 
 @app.route('/issue/update/upvote', methods=['GET', 'POST'])
 def upvote_issue():
@@ -130,7 +130,7 @@ def upvote_issue():
             issue.down_votes -= 1
             issue_vote.isupvote = True
         else:
-            return 'success vini'
+            return json.dumps({'status': 0})
     else:
         db.session.add(VoteIssueTable(user.id, issue_id, True))
 
@@ -138,7 +138,7 @@ def upvote_issue():
 
     db.session.commit()
 
-    return 'success'
+    return json.dumps({'status': 0})
 
 @app.route('/issue/update/downvote', methods=['GET', 'POST'])
 def downvote_issue():
@@ -157,7 +157,7 @@ def downvote_issue():
             issue.up_votes -= 1
             issue_vote.isupvote = False
         else:
-            return 'success vini'
+            return json.dumps({'status': 0})
     else:
         db.session.add(VoteIssueTable(user.id, issue_id, False))
 
@@ -165,7 +165,7 @@ def downvote_issue():
 
     db.session.commit()
 
-    return 'success'
+    return json.dumps({'status': 0})
 
 @app.route('/solution/update/upvote', methods=['GET', 'POST'])
 def upvote_solution():
@@ -185,7 +185,7 @@ def upvote_solution():
             solution.down_votes -= 1
             solution_vote.isupvote = True
         else:
-            return 'success vini'
+            return json.dumps({'status': 0})
     else:
         db.session.add(VoteSolutionTable(user.id, solution_id, True))
 
@@ -193,7 +193,7 @@ def upvote_solution():
 
     db.session.commit()
 
-    return 'success'
+    return json.dumps({'status': 0})
 
 @app.route('/solution/update/downvote', methods=['GET', 'POST'])
 def downvote_solution():
@@ -212,7 +212,7 @@ def downvote_solution():
             solution.up_votes -= 1
             solution_vote.isupvote = False
         else:
-            return 'success vini'
+            return json.dumps({'status': 0})
     else:
         db.session.add(VoteSolutionTable(user.id, solution_id, False))
 
@@ -220,4 +220,4 @@ def downvote_solution():
 
     db.session.commit()
 
-    return 'success'
+    return json.dumps({'status': 0})
