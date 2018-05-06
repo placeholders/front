@@ -1,5 +1,4 @@
 <template>
-<vk-card class="card uk-padding-remove">
   <table class="uk-table uk-table-striped">
     <thead>
         <tr>
@@ -14,7 +13,6 @@
         </tr>
     </tbody>
 </table>
-</vk-card>
 </template>
 
 <script>
@@ -36,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
-.card{
+.uk-table{
     margin: 2rem;
 }
 </style>
