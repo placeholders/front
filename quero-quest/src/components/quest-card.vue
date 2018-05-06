@@ -20,7 +20,7 @@
         {{ realDown }}
       </div>
 
-      <div class="desc" v-if="desc !== null">
+      <div class="desc" v-if="desc !== ''">
         <label>
           Description:
           <p>{{ desc }}</p>
