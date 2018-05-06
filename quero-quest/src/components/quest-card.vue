@@ -37,7 +37,7 @@ export default {
         url: 'http://127.0.0.1:5000/issue/update/upvote',
         data:{
           login: window.sessionStorage.getItem("user"),
-          issue_id: this.questId,
+          issue_id: this.$key,
         }
       })
     },
@@ -47,7 +47,7 @@ export default {
         url: 'http://127.0.0.1:5000/issue/update/downvote',
         data:{
           login: window.sessionStorage.getItem("user"),
-          issue_id: this.questId,
+          issue_id: this.$key,
         }
       })
     },
