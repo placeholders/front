@@ -4,7 +4,7 @@
           <vk-card-title slot="header">
                 Post a Quest
           </vk-card-title>
-          <form>d
+          <form>
                 <FormInput
                     input-id="txtquest"
                     input-placeholder="Quest"
