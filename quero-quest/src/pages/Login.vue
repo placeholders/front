@@ -24,6 +24,14 @@
                         type="button">
                         Login
                     </button>
+
+                    <button
+                        id="signup"
+                        @click="navigateTo('signup')"
+                        class="uk-button"
+                        type="button">
+                        Sign up
+                    </button>
                 </div>
           </form>
       </vk-card>
@@ -34,6 +42,11 @@
 import FormInput from '@/components/form-input.vue'
 
 export default {
+    methods: {
+        navigateTo: function(to){
+            window.router.push(to)
+        },
+    },
     components: {
         FormInput
     }
@@ -42,6 +55,9 @@ export default {
 
 <style>
 #login {
-  padding: 10px;
+    padding: 10px;
+}
+#signup {
+    margin-left: 1rem;
 }
 </style>
