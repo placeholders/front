@@ -52,7 +52,7 @@ export default {
               data: {
                   login: window.sessionStorage.getItem("user"),
                   issue_id: this.$vnode.key,
-                  desc: solution,
+                  desc: this.solution,
               }
           })
       }
