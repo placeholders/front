@@ -15,11 +15,14 @@ export default {
     }
   },
   mounted: function(){
-    this.user = JSON.parse(window.sessionStorage.getItem("user"))
+    let user = JSON.parse(window.sessionStorage.getItem("user"))
 
     if (this.user == null){
       window.router.push("/login")
+      return
     }
+
+    this.user = user
   }
 }
 </script>
