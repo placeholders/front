@@ -12,6 +12,9 @@ CREATE TABLE issue (
        description VARCHAR(1000),
        user_creator_id INT(6) NOT NULL,
        user_solver_id INT(6) NOT NULL,
+       created_date DATE,
+       up_votes INT(32),
+       down_votes INT(32),
 
        PRIMARY KEY (id),
        FOREIGN KEY (user_creator_id) REFERENCES user(id),
@@ -23,22 +26,11 @@ CREATE TABLE solution (
        description VARCHAR(1000),
        user_id INT(6),
        issue_id INT(6),
-
-       PRIMARY KEY (id),
-       FOREIGN KEY (user_id) REFERENCES user(id),
-       FOREIGN KEY (issue_id) REFERENCES issue(id)
-);
-
-CREATE TABLE score (
-       id INT(6) AUTO_INCREMENT,
-       user_id INT(6),
-       issue_id INT(6),
-       solution_id INT(6),
+       solved_date DATE,
        up_votes INT(32),
        down_votes INT(32),
 
        PRIMARY KEY (id),
        FOREIGN KEY (user_id) REFERENCES user(id),
-       FOREIGN KEY (issue_id) REFERENCES issue(id),
-       FOREIGN KEY (solution_id) REFERENCES solution(id)
+       FOREIGN KEY (issue_id) REFERENCES issue(id)
 );
