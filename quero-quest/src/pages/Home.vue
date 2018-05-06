@@ -1,28 +1,40 @@
 <template>
 <div id="main">
-	<NavApp/>
-	<div>
-    <vk-card>
-    <div class="uk-position-left uk-padding-small uk-padding-remove-top">
-     <h3><b>placeholder problem title</b></h3>
-  	</div>
-  	<div class="uk-position-left uk-padding-large">
-     x^ (y) zv
-  	</div>
-  	<div class="uk-position-center">
-      <p>Lorem problemus dolor de costus, conseteur essus bostus.</p>
-  </div>	
-    </vk-card>
-  </div>
+    <header>
+        <NavApp />
+    </header>
+    <main>
+        <QuestContainer />
+    </main>
 </div>
 </template>
 
 <script>
+import QuestContainer from '@/components/quest-container.vue'
 import NavApp from '@/components/app-nav.vue'
 
+
 export default {
-	components:{
-		NavApp
-	}
+    components:{
+        QuestContainer,
+		NavApp,
+    }
 }
 </script>
+
+<style scoped>
+#main {
+    display: grid;
+    grid-template:
+        "header"
+        "main";
+}
+#main header{
+    grid-area: header;
+
+    margin-bottom: 2.5rem;
+}
+#main main{
+    grid-area: main;
+}
+</style>
