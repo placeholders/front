@@ -1,5 +1,6 @@
 import os
 import json
+import datetime
 
 from flask import Flask
 from flask import request, render_template
@@ -33,6 +34,7 @@ def register_user():
     else:
         db.session.add(UserTable(name, login, password))
         db.session.commit()
+        return 'success'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -42,7 +44,7 @@ def login():
     user = UserTable.query.filter_by(login=login).first()
 
     if not user:
-        return json.dumps({'status': 1, 'message': 'invalid login'})
+        return json.dumps({'status': 1, 'message': 'invalid login', 'date': datetime.datetime.now().isoformat()})
 
     if user.password == password:
         return 'success'
@@ -54,8 +56,15 @@ def add_issue():
     user = request.form.get('user')
     title = request.form.get('title')
     description = request.form.get('description')
-    #don't forget to add line in votes_issue
-    return user +" "+title+" "+description
+
+    issue = IssueTable.query.filter_by(title=title).first()
+
+    if issue:
+        return 'an issue with this title already exists'
+    else:
+        db.session.add(IssueTable(description, user, None, datetime.datetime.now(), 0, 0))
+        db.session.commit()
+        return json.dumps({'status': 0, 'message': 'success'})
 
 @app.route('/issue/update', methods=['GET', 'POST'])
 def update_issue():
