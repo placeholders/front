@@ -4,11 +4,11 @@
       <h3 class="title">{{ title }}</h3>
       <h4 class="user">{{ user }}</h4>
       <p class="desc small-text">{{ desc }}</p>
-      <div class="votes-up">
+      <div class="votes-up" @click="voteup()">
         <img src="@/assets/upvote.png" />
         {{ up }}
       </div>
-      <div class="votes-down">
+      <div class="votes-down" @click="votedown()">
         <img src="@/assets/downvote.png" />
         {{ down }}
       </div>
