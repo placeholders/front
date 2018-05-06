@@ -12,22 +12,19 @@
                     input-id="txtquest"
                     input-placeholder="Quest"
                     label-text="Quest Title"
-                    />
-
-                <FormInput
-                    input-id="txtquestresume"
-                    input-placeholder="Here you write your quest resume"
-                    label-text="Quest small resume"
+                    v-model="title"
                     />
 
                 <FormInput
                     input-id="txtquestr"
                     input-placeholder="Here you write your quest"
                     label-text="Quest"
+                    v-model="full"
                     />
 
                 <div class="uk-margin" uk-margin>
                     <button
+                        @click="postIt()"
                         class="uk-button uk-button-primary"
                         type="button">
                         Submit it
@@ -43,6 +40,27 @@ import FormInput from '@/components/form-input.vue'
 import AppNav from '@/components/app-nav.vue'
 
 export default {
+    data(){return{
+        messages: [],
+
+        title: "",
+        full: "",
+    }},
+    methods: {
+        postIt: function(){
+            axiox({
+                method: 'post',
+                url: 'http://127.0.0.1:5000/issue/add',
+                data: {
+                    login: window.app.user.login,
+                    title: this.title,
+                    description: this.full,
+                },
+            }).then(response => {
+                this.messages.push(response.data.message)
+            })
+        },
+    },
     components: {
         AppNav,
         FormInput

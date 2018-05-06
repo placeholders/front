@@ -84,6 +84,7 @@ export default {
                     return
                 }
 
+                window.app.user.login = this.user
                 this.navigateTo("/")
             })
         }

@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
-new Vue({
+window.app = new Vue({
   el: '#app',
   router,
   template: '<App/>',
