@@ -26,6 +26,7 @@
 
 <script>
 import axios from 'axios'
+import AppNav from '@/components/app-nav.vue'
 import QuestCard from '@/components/quest-card.vue'
 import FormInput from '@/components/form-input.vue'
 
@@ -36,6 +37,7 @@ export default {
   components:{
     QuestCard,
     FormInput,
+    AppNav,
   },
   mounted:function(){
       axios({
