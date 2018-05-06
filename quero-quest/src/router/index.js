@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/pages/Home'
+import Quest from '@/pages/Quest'
 import Login from '@/pages/Login'
 import Signup from '@/pages/Signup'
 import PostAQuest from '@/pages/Postaquest'
@@ -35,6 +36,11 @@ window.router = new VueRouter({
             path: '/board',
             name: 'board',
             component: Leaderboard
+        },
+        {
+            path: '/quest/:id',
+            name: 'quest',
+            component: Quest
         },
     ]
 })
