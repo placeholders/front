@@ -1,5 +1,5 @@
 <template>
-<div id="quests">
+<div id="quests" class="uk-width-2-3@m">
     <vk-card>
         <vk-card-title>wololo</vk-card-title>
     </vk-card>
@@ -10,3 +10,16 @@
     </vk-card>
 </div>
 </template>
+
+<style scoped>
+#quests {
+    display: flex;
+    align-items: stretch;
+    flex-flow: column nowrap;
+
+    margin: 0 auto;
+}
+#quests > * {
+    margin-bottom: 2.5rem;
+}
+</style>
