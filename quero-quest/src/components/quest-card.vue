@@ -20,6 +20,13 @@
         {{ realDown }}
       </div>
 
+      <div class="desc" v-if="desc !== null">
+        <label>
+          Description:
+          <p>{{ desc }}</p>
+        </label>
+      </div>
+
     </div>
   </vk-card>
 </template>
@@ -106,5 +113,8 @@ export default {
 }
 .body .user {
   grid-area: user;
+}
+.body .desc p {
+  color: #333;
 }
 </style>

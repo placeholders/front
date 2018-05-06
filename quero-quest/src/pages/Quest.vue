@@ -12,13 +12,6 @@
             :desc="quest.description"
             />
 
-        <div class="desc">
-            <label>
-                Description:
-                <p>{{ quest.description }}</p>
-            </label>
-        </div>
-
         <FormInput
             input-id="txtAnswer"
             input-placeholder="Here you write your answer"

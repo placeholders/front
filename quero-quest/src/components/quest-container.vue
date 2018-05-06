@@ -8,7 +8,6 @@
         :title="q.title"
         :up="q.up_votes"
         :down="q.down_votes"
-        :desc="q.description"
         />
 </div>
 </template>
