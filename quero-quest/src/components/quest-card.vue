@@ -18,6 +18,8 @@
 
 
 <script>
+import axios from 'axios'
+
 export default {
   name: "QuestCard",
   props:{
@@ -26,7 +28,30 @@ export default {
     up:Number,
     down:Number,
     desc:String,
-  }
+    questId:Number,
+  },
+  methods: {
+    voteup: function(){
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:5000/issue/update/upvote',
+        data:{
+          login: window.sessionStorage.getItem("user"),
+          issue_id: this.questId,
+        }
+      })
+    },
+    votedown: function(){
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:5000/issue/update/downvote',
+        data:{
+          login: window.sessionStorage.getItem("user"),
+          issue_id: this.questId,
+        }
+      })
+    },
+  },
 }
 </script>
 
