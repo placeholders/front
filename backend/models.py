@@ -19,6 +19,7 @@ class IssueTable(db.Model):
     __tablename__ = 'issue'
 
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    title = db.Column(db.String())
     description = db.Column(db.String())
     user_creator_id = db.Column(db.Integer())
     user_solver_id = db.Column(db.Integer())
@@ -54,5 +55,30 @@ class SolutionTable(db.Model):
         self.up_votes = up_votes
         self.down_votes = down_votes
 
+class VoteIssueTable(db.Model):
+    __tablename__ = 'vote_issue'
+    __table_args__ = {'extend_existing': True}
 
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer())
+    issue_id = db.Column(db.Integer())
+    isupvote = db.Column(db.Boolean())
 
+    def __init__(self, user_id, issue_id, isupvote):
+        self.user_id = user_id
+        self.issue_id = issue_id
+        self.isupvote = isupvote
+
+class VoteSolutionTable(db.Model):
+    __tablename__ = 'vote_issue'
+    __table_args__ = {'extend_existing': True}
+
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer())
+    solution_id = db.Column(db.Integer())
+    isupvote = db.Column(db.Boolean())
+
+    def __init__(self, user_id, solution_id, isupvote):
+        self.user_id = user_id
+        self.solution_id = solution_id
+        self.isupvote = isupvote
