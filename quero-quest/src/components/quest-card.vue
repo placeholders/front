@@ -1,36 +1,57 @@
 <template>
-<vk-card>
-   	<div class="uk-position-top-left" id="title">
-    	<b>Placeholder problem title</b>
-  	</div>
-  	<div class="uk-position-bottom-left" id="votes">
-    <img src="@/assets/upvote.png" />
-  	</div>
-    <div class="uk-position-bottom-left" id="votes2">
-    <img src="@/assets/questing.png" />
+  <vk-card>
+    <div class="body">
+      <div class="title">
+        <h3>placeholder problem title</h3>
+      </div>
+      <div class="votes small-text">
+      <img src="@/assets/upvote.png" />
+      </div>
+      <div class="votes small-text">
+      <img src="@/assets/questing.png" />
+      </div>
+      <div class="votes small-text">
+      <img src="@/assets/downvote.png" />
+      </div>
+      <div class="desc small-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit eos neque non facilis tempora reprehenderit harum animi sint necessitatibus minima? Cum tenetur veniam harum porro maiores exercitationem accusantium, praesentium magnam commodi, cupiditate ducimus asperiores adipisci. Aliquid, repellat repudiandae voluptatem eos dolore cumque quas nostrum, perferendis doloremque, aliquam accusantium placeat eaque?</p>
+      </div>	
     </div>
-    <div class="uk-position-bottom-left" id="votes3">
-    <img src="@/assets/downvote.png" />
-    </div>
-  	<div class="uk-position-center-right" id="text">
-    	<p>Teverem plobremus delus codigus, conseteur essus bostos.</p>
-    </div>	
-</vk-card>
+  </vk-card>
 </template>
-<style type="text/css">
-#title{
-	padding-left: 5%;
-	padding-top: 0.5%;
-	font-size: 130%;
+
+
+<script>
+export default {
+  name: "QuestCard",
 }
-#text{
-	padding-right: 2%;
-	font-size: 95%;
+</script>
+
+
+<style scoped>
+.body {
+  display: grid;
+  grid-template:
+    "title desc" 1fr
+    "votes desc" 1fr
+    / 1fr 2fr;
 }
-#votes{
-	padding-left: 5%;
-	padding-bottom: 0.5%;
-	font-size: 95%;
+.body .title {
+  grid-area: title;
+
+}
+.body .title > * { 
+	font-size: 1.3rem;
+  font-weight: bold;
+}
+.small-text {
+  font-size: 0.95rem;
+}
+.body .votes {
+  grid-area: votes;
+}
+.body .desc {
+  grid-area: desc;
 }
 #votes2{
   padding-left: 10%;
@@ -43,5 +64,3 @@
   font-size: 95%;
 }
 </style>
-
-

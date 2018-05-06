@@ -1,19 +1,21 @@
 <template>
 <div id="quests" class="uk-width-2-3@m">
-        <QuestContent/>    
-
-        <QuestContent/>
+    <QuestCard />
 </div>
 </template>
-<script type="text/javascript">
-   import QuestContent from '@/components/quest-card.vue' 
 
-    export default {
-    components:{
-        QuestContent,
+<script>
+import QuestCard from './quest-card.vue'
+
+export default {
+    name: "QuestContainer",
+    components: {
+        QuestCard,
     }
 }
 </script>
+
+
 <style scoped>
 #quests {
     display: flex;

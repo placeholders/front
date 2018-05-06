@@ -1,7 +1,7 @@
 <template>
   <vk-navbar>
     <vk-navbar-nav slot="left">
-      <vk-navbar-logo id="logo">
+      <vk-navbar-logo>
         <img src="@/assets/artproquest.png" />
       </vk-navbar-logo>
 
