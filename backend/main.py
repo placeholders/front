@@ -1,6 +1,7 @@
 import os
 import json
 import datetime
+from operator import itemgetter
 
 from flask import Flask
 from flask import request
@@ -221,3 +222,50 @@ def downvote_solution():
     db.session.commit()
 
     return json.dumps({'status': 0})
+
+@app.route('/quests', methods=['GET'])
+def get_quests():
+    quests = IssueTable.query.all()
+    ans = dict(quests=[])
+    for q in quests:
+        if q.user_solver_id:
+            continue
+        user = UserTable.query.filter_by(id=q.user_creator_id).first()
+        quest = dict(
+            quest_id=q.id,
+            user=user.login,
+            created_date=str(q.created_date),
+            description=q.description,
+            title=q.title,
+            up_votes=q.up_votes,
+            down_votes=q.down_votes
+        )
+        ans['quests'].append(quest)
+
+    return json.dumps(ans)
+
+@app.route('/users/scores', methods=['GET'])
+def user_scores():
+    users = UserTable.query.all()
+
+    ans = dict(users=[])
+    for user in users:
+        score = 0
+
+        quests = IssueTable.query.filter_by(user_creator_id=user.id).all()
+        for q in quests:
+            score += (q.up_votes - q.down_votes)
+
+        solved = SolutionTable.query.filter_by(user_id=user.id).all()
+        for q in solved:
+            score += q.up_votes
+
+        user_dict = dict(
+            name=user.name,
+            login=user.login,
+            score=score
+        )
+        ans['users'].append(user_dict)
+
+    ans['users'] = sorted(ans['users'], key=itemgetter('score'), reverse=True)
+    return json.dumps(ans)
