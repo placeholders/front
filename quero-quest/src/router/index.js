@@ -5,6 +5,7 @@ import Home from '@/pages/Home'
 import Login from '@/pages/Login'
 import Signup from '@/pages/Signup'
 import PostAQuest from '@/pages/Postaquest'
+import Leaderboard from '@/pages/Leaderboard'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ window.router = new VueRouter({
             path: '/post',
             name: 'post',
             component: PostAQuest
+        },
+        {
+            path: '/board',
+            name: 'board',
+            component: Leaderboard
         },
     ]
 })

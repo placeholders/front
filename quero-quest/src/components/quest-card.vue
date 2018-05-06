@@ -4,11 +4,11 @@
       <h3 class="title">{{ title }}</h3>
       <h4 class="user">{{ user }}</h4>
       <p class="desc small-text">{{ desc }}</p>
-      <div class="votes-up" @click="voteup()">
+      <div class="votes-up uk-button" @click="voteup()">
         <img src="@/assets/upvote.png" />
         {{ realUp }}
       </div>
-      <div class="votes-down" @click="votedown()">
+      <div class="votes-down uk-button" @click="votedown()">
         <img src="@/assets/downvote.png" />
         {{ realDown }}
       </div>
@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     voteup: function(){
-      this.realUp++
       axios({
         method: 'post',
         url: 'http://127.0.0.1:5000/issue/update/upvote',
@@ -44,17 +43,22 @@ export default {
           login: window.sessionStorage.getItem("user"),
           issue_id: this.$vnode.key,
         }
+      }).then(response => {
+        this.realDown = response.data.down_votes
+        this.realUp = response.data.up_votes
       })
     },
     votedown: function(){
-      this.realDown++
       axios({
         method: 'post',
         url: 'http://127.0.0.1:5000/issue/update/downvote',
         data:{
           login: window.sessionStorage.getItem("user"),
-          issue_id: this.$key,
+          issue_id: this.$vnode.key,
         }
+      }).then(response => {
+        this.realDown = response.data.down_votes
+        this.realUp = response.data.up_votes
       })
     },
   },
