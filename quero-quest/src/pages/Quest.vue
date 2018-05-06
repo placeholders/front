@@ -60,6 +60,6 @@ export default {
     align-items: stretch;
     flex-flow: column nowrap;
 
-    margin: 0 auto;
+    margin: 2.5rem auto 0;
 }
 </style>
