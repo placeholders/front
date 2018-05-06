@@ -233,7 +233,7 @@ def get_quests():
         user = UserTable.query.filter_by(id=q.user_creator_id).first()
         quest = dict(
             quest_id=q.id,
-            user=user.login,
+            creator=user.login,
             created_date=str(q.created_date),
             description=q.description,
             title=q.title,
@@ -269,3 +269,27 @@ def user_scores():
 
     ans['users'] = sorted(ans['users'], key=itemgetter('score'), reverse=True)
     return json.dumps(ans)
+
+@app.route('/quests/completed', methods=['GET'])
+def get_completed_quests():
+    quests = IssueTable.query.all()
+    ans = dict(quests=[])
+    for q in quests:
+        if not q.user_solver_id:
+            continue
+        creator = UserTable.query.filter_by(id=q.user_creator_id).first()
+        solver = UserTable.query.filter_by(id=q.user_solver_id).first()
+        quest = dict(
+            quest_id=q.id,
+            creator=creator.login,
+            solver=solver.login,
+            created_date=str(q.created_date),
+            description=q.description,
+            title=q.title,
+            up_votes=q.up_votes,
+            down_votes=q.down_votes
+        )
+        ans['quests'].append(quest)
+
+    return json.dumps(ans)
+
