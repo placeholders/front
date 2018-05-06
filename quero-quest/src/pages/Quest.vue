@@ -52,7 +52,7 @@ export default {
               data: {
                   login: window.sessionStorage.getItem("user"),
                   issue_id: this.$route.params.id,
-                  desc: this.solution,
+                  description: this.solution,
               }
           })
       }
