@@ -12,10 +12,12 @@
             :desc="quest.description"
             />
 
-        <label>
-            Description:
-            <p>{{ quest.description }}</p>
-        </label>
+        <vk-card>
+            <label>
+                Description:
+                <p>{{ quest.description }}</p>
+            </label>
+        </vk-card>
 
         <FormInput
             input-id="txtAnswer"
