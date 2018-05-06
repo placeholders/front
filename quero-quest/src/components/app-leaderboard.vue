@@ -1,5 +1,5 @@
 <template>
-<vk-card class="card">
+<vk-card class="card uk-padding-remove">
   <table class="uk-table uk-table-striped">
     <thead>
         <tr>
