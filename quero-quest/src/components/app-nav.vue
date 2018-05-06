@@ -19,6 +19,7 @@
       </router-link></li>
     </vk-navbar-nav>
     <vk-navbar-nav slot="right" class="uk-padding-small">
+      <vk-navbar-nav-item>{{ user }}</vk-navbar-nav-item>
       <vk-button type="primary" @click="logout()">Logout</vk-button>
     </vk-navbar-nav>
   </vk-navbar>
@@ -26,6 +27,9 @@
 
 <script>
 export default {
+  data(){return{
+    user: window.sessionStorage.getItem("user"),
+  }},
   methods:{
     logout: function(){
       window.sessionStorage.clear()
