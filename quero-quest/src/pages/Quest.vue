@@ -51,7 +51,7 @@ export default {
               url: 'http://127.0.0.1:5000/solution/add',
               data: {
                   login: window.sessionStorage.getItem("user"),
-                  issue_id: this.$vnode.key,
+                  issue_id: this.$routes.params.id,
                   desc: this.solution,
               }
           })
