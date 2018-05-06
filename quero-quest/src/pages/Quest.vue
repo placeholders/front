@@ -71,6 +71,9 @@ export default {
     margin: 2.5rem auto 0;
 }
 .desc {
-    font-size: 2rem;
+    font-size: 1.25rem;
+}
+.desc p {
+    color: #333;
 }
 </style>
