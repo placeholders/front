@@ -1,21 +1,25 @@
 <template>
 <div>
-  <QuestCard
-    :key="$route.params.id"
-    :user="quest.creator"
-    :title="quest.title"
-    :up="quest.up_votes"
-    :down="quest.down_votes"
-    :desc="quest.description"
-    />
-  <FormInput
-    input-id="txtanswer"
-    input-placeholder="Here you write your answer"
-    label-text="Answer"
-    v-model="full"
-    />
-  <button>Submit</button>    
+    <AppNav />
 
+    <div class="uk-width-2-3@m">
+        <QuestCard
+            :key="$route.params.id"
+            :user="quest.creator"
+            :title="quest.title"
+            :up="quest.up_votes"
+            :down="quest.down_votes"
+            :desc="quest.description"
+            />
+        <FormInput
+            input-id="txtAnswer"
+            input-placeholder="Here you write your answer"
+            label-text="Answer"
+            v-model="full"
+            />
+
+        <button class="uk-button uk-button-primary">Submit</button>    
+    </div>
 </div>
 </template>
 
