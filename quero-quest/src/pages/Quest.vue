@@ -1,6 +1,7 @@
 <template>
 <div>
   <QuestCard
+    :key="$route.params.id"
     :user="quest.creator"
     :title="quest.title"
     :up="quest.up_votes"
