@@ -16,10 +16,12 @@
             input-id="txtAnswer"
             input-placeholder="Here you write your answer"
             label-text="Answer"
-            v-model="full"
+            v-model="solution"
             />
 
-        <button class="uk-button uk-button-primary">Submit</button>    
+        <button
+            class="uk-button uk-button-primary"
+            @click="submit()">Submit</button>
     </div>
 </div>
 </template>
@@ -30,15 +32,32 @@ import axios from 'axios'
 import AppNav from '@/components/app-nav.vue'
 import QuestCard from '@/components/quest-card.vue'
 import FormInput from '@/components/form-input.vue'
+import questCardVue from '../components/quest-card.vue';
 
 export default {
-  props:{
-    quest: Object,
-  },
-  components:{
-    QuestCard,
-    FormInput,
-    AppNav,
+    data(){return{
+        solution: "",
+    }},
+    props:{
+        quest: Object,
+    },
+    components:{
+        QuestCard,
+        FormInput,
+        AppNav,
+    },
+    methods: {
+      submit: function(){
+          axios({
+              method: 'post',
+              url: 'http://127.0.0.1:5000/solution/add',
+              data: {
+                  login: window.sessionStorage.getItem("user"),
+                  issue_id: this.$vnode.key,
+                  desc: solution,
+              }
+          })
+      }
   },
   mounted:function(){
       axios({
