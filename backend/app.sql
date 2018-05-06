@@ -43,8 +43,8 @@ CREATE TABLE vote_issue (
        isupvote BOOLEAN,
 
        PRIMARY KEY (id),
-       FOREIGN KEY (user_id),
-       FOREIGN KEY (issue_id)
+       FOREIGN KEY (user_id) REFERENCES user(id),
+       FOREIGN KEY (issue_id) REFERENCES issue(id)
 );
 
 CREATE TABLE vote_solution (
@@ -54,7 +54,7 @@ CREATE TABLE vote_solution (
        isupvote BOOLEAN,
 
        PRIMARY KEY (id),
-       FOREIGN KEY (user_id),
-       FOREIGN KEY (solution_id)
+       FOREIGN KEY (user_id) REFERENCES user(id),
+       FOREIGN KEY (solution_id) REFERENCES solution(id)
 );
 
