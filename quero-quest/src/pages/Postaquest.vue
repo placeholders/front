@@ -3,7 +3,7 @@
       <header>
           <AppNav />
       </header>
-      <vk-card class="uk-width-1-5@m uk-position-absolute uk-transform-center" style="left:50%;top:50%">
+      <vk-card class="uk-width-1-3@m uk-position-absolute uk-transform-center" style="left:50%;top:50%">
           <vk-card-title slot="header">
                 Post a Quest
           </vk-card-title>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import FormInput from '@/components/form-input.vue'
 import AppNav from '@/components/app-nav.vue'
 

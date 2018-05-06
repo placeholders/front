@@ -4,7 +4,7 @@
         status="danger"
         :messages.sync="messages"
         />
-      <vk-card class="uk-width-1-5@m uk-position-absolute uk-transform-center" style="left:50%;top:50%">
+      <vk-card class="uk-width-1-3@m uk-position-absolute uk-transform-center" style="left:50%;top:50%">
           <vk-card-title slot="header">
                 Login
           </vk-card-title>
