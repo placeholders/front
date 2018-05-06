@@ -8,12 +8,14 @@
       <vk-navbar-nav-item
         title="Profile"
         />
-      <vk-navbar-nav-item
-        title="Quests"
-        />
-      <vk-navbar-nav-item
-        title="Post a Quest"
-        />
+      <li><router-link
+        to="/">
+        Quests
+      </router-link></li>
+      <li><router-link
+        to="/post">
+        Post a Quest
+      </router-link></li>
       <vk-navbar-nav-item
         title="Leaderboard"
         />
@@ -34,3 +36,8 @@ export default {
 }
 </script>
 
+<style scoped>
+.router-link-exact-active{
+  color: #111
+}
+</style>
