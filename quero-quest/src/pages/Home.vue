@@ -16,7 +16,7 @@ import NavApp from '@/components/app-nav.vue'
 
 export default {
     mounted: function(){
-        let user = JSON.parse(window.sessionStorage.getItem("user"))
+        let user = window.sessionStorage.getItem("user")
 
         if (user == null){
         window.router.push("/login")
