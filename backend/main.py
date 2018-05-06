@@ -23,19 +23,33 @@ def register_user():
     login = request.form.get('login')
     password = request.form.get('password')
     confirm_password = request.form.get('confirmed_password')
-    #db.session.add(TestTable(name))
-    #db.session.commit()
-    return name + ' ' + login + ' ' + password + ' ' + confirm_password
 
+    user = UserTable.query.filter_by(login=login).first()
+
+    if user:
+        return 'login already exists'
+    elif password != confirm_password:
+        return 'passwords does not match'
+    else:
+        db.session.add(UserTable(name, login, password))
+        db.session.commit()
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    user = request.form.get('user')
+    login = request.form.get('user')
     password = request.form.get('password')
-    #db.session.add(TestTable(name))
-    #db.session.commit()
-    return user + ' ' + password;
+
+    user = UserTable.query.filter_by(login=login).first()
+
+    if not user:
+        return json.dumps({'status': 1, 'message': 'invalid login'})
+
+    if user.password == password:
+        return 'success'
+    else:
+        return 'Wrong password'
 
 @app.route('/issue/add', methods=['GET', 'POST'])
 def add_issue():
     return login + ' ' + description
+
