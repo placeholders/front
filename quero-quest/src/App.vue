@@ -7,7 +7,7 @@ export default {
   mounted: function(){
     let user = JSON.parse(window.sessionStorage.getItem("user"))
 
-    if (this.user == null){
+    if (user == null){
       window.router.push("/login")
     }
   }
