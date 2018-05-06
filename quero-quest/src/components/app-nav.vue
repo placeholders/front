@@ -2,7 +2,10 @@
   <vk-navbar>
     <vk-navbar-nav slot="left">
       <vk-navbar-logo>
-        <img src="@/assets/artproquest.png" />
+        <router-link
+          to="/">
+          <img src="@/assets/artproquest.png" />
+        </router-link>
       </vk-navbar-logo>
 
       <li><router-link
