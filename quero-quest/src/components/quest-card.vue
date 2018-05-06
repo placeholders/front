@@ -1,6 +1,6 @@
 <template>
   <vk-card>
-    <div class="body" :class="{ 'body-nodesc' : (desc != null) }">
+    <div class="body" :class="{ 'body-nodesc' : (desc == null) }">
       <label>
         Title:
         <h3 class="title" @click="openIt($vnode.key)">{{ title }}</h3>
